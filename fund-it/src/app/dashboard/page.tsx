@@ -42,16 +42,16 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
 
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">{activeProfile.name}&apos;s saved items</h1>
-        <Link href={`/search?profile=${activeProfile.id}`} className="btn-primary">New search</Link>
+        <div className="flex gap-2">
+          <SurpriseMeButton profileId={activeProfile.id} />
+          <Link href={`/search?profile=${activeProfile.id}`} className="btn-primary">New search</Link>
+        </div>
       </div>
 
       {tracked.length === 0 ? (
         <div className="card flex flex-col items-center gap-4 py-10 text-center">
           <p className="text-text-muted">Nothing saved yet for {activeProfile.name}.</p>
-          <div className="flex gap-2">
-            <Link href={`/search?profile=${activeProfile.id}`} className="btn-primary">Run a search</Link>
-            <SurpriseMeButton profileId={activeProfile.id} />
-          </div>
+          <Link href={`/search?profile=${activeProfile.id}`} className="btn-primary">Run a search</Link>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
