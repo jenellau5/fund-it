@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-text font-body antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-card p-5;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-pill px-3 py-1 text-[10.5px] font-bold uppercase tracking-wide;
+  }
+  .badge-violet { @apply bg-violet-soft text-violet; }
+  .badge-lime { @apply bg-lime-soft text-lime; }
+  .badge-coral { @apply bg-coral-soft text-coral; }
+  .badge-mint { @apply bg-mint-soft text-mint; }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-bold whitespace-nowrap transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-violet text-white hover:bg-violet/90;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent border border-border text-text hover:bg-surface-raised;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-border bg-surface px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-violet;
+  }
+
+  .mono {
+    @apply font-mono;
+  }
+}
