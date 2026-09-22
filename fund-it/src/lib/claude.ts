@@ -19,9 +19,16 @@ export const SEARCH_MODEL = 'claude-sonnet-5';
 // of this tool exist with extra options (dynamic filtering, response
 // inclusion control); check Anthropic's web search tool docs if it's
 // worth upgrading to one of those later.
+//
+// max_uses caps how many searches Claude can run in one request. The
+// on-demand search route has a 60s function timeout (see
+// app/api/search/submit/route.ts), and an open-ended "search everything"
+// prompt can run long enough to blow past that. Capping usage here bounds
+// worst-case latency so searches reliably finish in time on the free plan.
 export const WEB_SEARCH_TOOL = {
   type: 'web_search_20250305',
   name: 'web_search',
+  max_uses: 6,
 };
 
 export type FoundOpportunity = {
